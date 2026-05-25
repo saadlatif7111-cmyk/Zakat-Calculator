@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Zakat & Ushr Calculator 2025 | Free Islamic Charity Calculator (PKR)</title>
+  <meta name="description" content="Calculate your Zakat and Ushr easily and accurately. Free Islamic charity calculator for Pakistan. Supports gold, silver, cash, savings, stocks, crops and more. Updated Nisab values in PKR." />
+  <meta name="keywords" content="zakat calculator, ushr calculator, zakat calculator pakistan, zakat calculator PKR, nisab 2025, zakat on gold, zakat on savings, ushr on crops, islamic calculator, زکوٰۃ کیلکولیٹر" />
+  <meta name="author" content="Zakat Calculator PK" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yourdomain.com/zakat-ushr-calculator" />
+
+  <!-- Open Graph (for WhatsApp, Facebook sharing) -->
+  <meta property="og:title" content="Free Zakat & Ushr Calculator 2025 — Pakistan (PKR)" />
+  <meta property="og:description" content="Calculate your Zakat and Ushr in PKR. Includes gold, silver, savings, stocks, crops and Nisab threshold. 100% free." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/zakat-ushr-calculator" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1D6A4A;
+      --green-light: #E8F5EE;
+      --green-mid: #2E8B60;
+      --gold: #B8860B;
+      --gold-light: #FDF6DC;
+      --red-light: #FDF0F0;
+      --red: #B03030;
+      --text: #1A1A1A;
+      --text-muted: #5A6470;
+      --border: #E0E6E2;
+      --bg: #F7FAF8;
+      --white: #FFFFFF;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 3rem 1.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .header-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 2rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    header h1 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Main layout */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* Tabs */
+    .tab-bar {
+      display: flex;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 5px;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 11px;
+      border: none;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+    }
+    .tab-btn svg { width: 18px; height: 18px; }
+    .tab-btn.active {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 2px 8px rgba(29,106,74,0.3);
+    }
+
+    /* Section cards */
+    .section-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .section-title {
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--green);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .section-title svg { width: 15px; height: 15px; }
+
+    /* Fields */
+    .field-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .field-row label {
+      flex: 1;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    .field-row input {
+      width: 150px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      text-align: right;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.15s;
+      outline: none;
+    }
+    .field-row input:focus { border-color: var(--green); background: white; }
+
+    /* Info box */
+    .info-box {
+      background: var(--green-light);
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1rem;
+      font-size: 0.88rem;
+      color: #1A3D2B;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    /* Irrigation toggle */
+    .irr-row { display: flex; gap: 8px; margin-bottom: 1rem; }
+    .irr-btn {
+      flex: 1; padding: 9px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .irr-btn.active {
+      border-color: var(--green);
+      background: var(--green-light);
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* Result area */
+    #zakat-result, #ushr-result { margin-top: 0.5rem; }
+    .result-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 1.25rem;
+    }
+    .result-badge.eligible { background: var(--green-light); color: var(--green); }
+    .result-badge.not-eligible { background: var(--red-light); color: var(--red); }
+    .result-badge svg { width: 14px; height: 14px; }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .metric {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+    }
+    .metric-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px; }
+    .metric-value { font-size: 1.25rem; font-weight: 500; color: var(--text); }
+    .metric-value.highlight { color: var(--green); }
+
+    .nisab-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      padding-top: 0.75rem;
+    }
+
+    /* FAQ Section */
+    .faq-section { margin-top: 3rem; }
+    .faq-section h2 {
+      font-family: 'Amiri', serif;
+      font-size: 1.6rem;
+      color: var(--green);
+      margin-bottom: 1.25rem;
+    }
+    details {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 0.75rem;
+      box-shadow: var(--shadow);
+    }
+    summary {
+      padding: 1rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.2rem; color: var(--green); }
+    details[open] summary::after { content: '−'; }
+    details p {
+      padding: 0 1.25rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background: var(--white);
+      margin-top: 2rem;
+    }
+    footer strong { color: var(--green); }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.35rem; }
+      .result-grid { grid-template-columns: 1fr; }
+      .field-row input { width: 120px; }
+    }
+  </style>
+
+  <!-- Schema.org structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Zakat & Ushr Calculator",
+    "description": "Free online Zakat and Ushr calculator for Muslims in Pakistan. Calculate your Islamic obligatory charity with updated Nisab values in PKR.",
+    "url": "https://yourdomain.com/zakat-ushr-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PKR" }
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-arabic">زکوٰۃ اور عشر کیلکولیٹر</div>
+  <h1>Zakat & Ushr Calculator 2025</h1>
+  <p>Calculate your Islamic obligatory charity accurately. Updated Nisab values in Pakistani Rupees (PKR).</p>
+</header>
+
+<main>
+
+  <!-- Tabs -->
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchTab('zakat')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg>
+      Zakat (زکوٰۃ)
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab('ushr')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Ushr (عشر)
+    </button>
+  </div>
+
+  <!-- ZAKAT PANEL -->
+  <div id="zakat-panel">
+    <div class="info-box">
+      <strong>What is Zakat?</strong> Zakat is 2.5% of your total net wealth held for one full lunar year (Hawl), if it exceeds the Nisab threshold. Nisab is based on the value of 87.48g of gold or 612.36g of silver — whichever is lower.
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>
+        Cash & Savings
+      </div>
+      <div class="field-row"><label>Cash at home (PKR)</label><input type="number" id="z-cash" value="0" min="0" oninput="calcZakat()"></div>
+      <div class="field-row"><label>Bank balance (PKR)</label><input type="number" id="z-bank" value="0" min="0" oninput="calcZakat()"></div>
+      <div class="field-row"><label>Money lent to others (PKR)</label><input type="number" id="z-lent" value="0" min="0" oninput="calcZakat()"></div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Gold & Silver
+      </div>
+      <div class="field-row"><label>Gold (grams)</label><input type="number" id="z-gold-g" value="0" min="0" oninput="calcZakat()"></div>
+      <div class="field-row"><label>Gold price per gram (PKR)</label><input type="number" id="z-gold-price" value="22000" min="0" oninput="calcZakat()"></div>
+      <div class="field-row"><label>Silver (grams)</label><input type="number" id="z-silver-g" value="0" min="0" oninput="calcZakat()"></div>
+      <div class="field-row"><label>Silver price per gram (PKR)</label><input type="number" id="z-silver-price" value="275" min="0" oninput="calcZakat()"></div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        Investments & Business
+      </div>
+      <div class="field-row"><label>Stocks / Shares value (PKR)</label><input type="number" id="z-stocks" value="0" min="0" oninput="calcZakat()"></div>
+      <div class="field-row"><label>Business inventory value (PKR)</label><input type="number" id="z-biz" value="0" min="0" oninput="calcZakat()"></div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Deductions
+      </div>
+      <div class="field-row"><label>Outstanding debts / liabilities (PKR)</label><input type="number" id="z-debt" value="0" min="0" oninput="calcZakat()"></div>
+    </div>
+
+    <div id="zakat-result"></div>
+  </div>
+
+  <!-- USHR PANEL -->
+  <div id="ushr-panel" style="display:none;">
+    <div class="info-box">
+      <strong>What is Ushr?</strong> Ushr is an obligatory charity on agricultural produce. The rate is <strong>10%</strong> for crops irrigated by rain or natural water, and <strong>5%</strong> for crops requiring artificial irrigation. The Nisab threshold is approximately 653 kg (5 wasaq).
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">Irrigation type</div>
+      <div class="irr-row">
+        <button class="irr-btn active" id="rain-btn" onclick="setIrrigationType('rain')">🌧 Rain-fed / Natural (10%)</button>
+        <button class="irr-btn" id="irr-btn" onclick="setIrrigationType('irrigated')">💧 Artificially irrigated (5%)</button>
+      </div>
+      <div class="field-row"><label>Total crop yield (kg)</label><input type="number" id="u-yield" value="0" min="0" oninput="calcUshr()"></div>
+      <div class="field-row"><label>Market price per kg (PKR)</label><input type="number" id="u-price" value="50" min="0" oninput="calcUshr()"></div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">Or enter total produce value directly</div>
+      <div class="field-row"><label>Total produce value (PKR)</label><input type="number" id="u-value" value="0" min="0" oninput="calcUshrValue()"></div>
+    </div>
+
+    <div id="ushr-result"></div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>What is the Nisab for Zakat in 2025?</summary>
+      <p>Nisab is calculated using either gold (87.48 grams) or silver (612.36 grams) — whichever results in the lower value is used. Based on current Pakistani gold prices of approximately PKR 22,000/gram, the gold Nisab is around PKR 19,24,560. The silver Nisab at PKR 275/gram is approximately PKR 1,68,399. Most scholars use the silver standard as it allows more people to pay Zakat.</p>
+    </details>
+
+    <details>
+      <summary>Is Zakat due on property and real estate?</summary>
+      <p>Zakat is not due on your primary home or property used for personal use. However, if you own property for the purpose of selling it (investment property), then Zakat is due on its market value. Rental income is included as part of your zakatable wealth.</p>
+    </details>
+
+    <details>
+      <summary>What is the difference between Ushr and Zakat?</summary>
+      <p>Zakat applies to wealth (savings, gold, silver, stocks, business inventory) and is 2.5% of net wealth held for one full lunar year above the Nisab. Ushr applies specifically to agricultural produce and is paid at every harvest — 10% for rain-fed crops and 5% for irrigated crops. Ushr does not require a Hawl (one year holding period).</p>
+    </details>
+
+    <details>
+      <summary>Can I pay Zakat in installments throughout the year?</summary>
+      <p>Yes. While Zakat becomes due once a year (on the anniversary of your wealth reaching Nisab), you are permitted to pay it in monthly installments throughout the year as long as the full amount is paid by your Zakat due date.</p>
+    </details>
+
+    <details>
+      <summary>Who is eligible to receive Zakat?</summary>
+      <p>According to the Quran (9:60), Zakat must be given to: the poor (Fuqara), the needy (Masakin), those employed to collect Zakat, those whose hearts are to be reconciled, those in bondage, debtors, those striving in the cause of Allah, and travelers in need. It cannot be given to direct family members whom you are financially responsible for.</p>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <p>This calculator is provided for informational purposes. For religious rulings, please consult a qualified Islamic scholar.</p>
+  <p style="margin-top: 6px;">Made with ❤️ for <strong>Muslims in Pakistan</strong></p>
+</footer>
+
+<script>
+  let irrigationType = 'rain';
+
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => {
+      b.classList.toggle('active', (i === 0 && tab === 'zakat') || (i === 1 && tab === 'ushr'));
+      b.setAttribute('aria-selected', b.classList.contains('active'));
+    });
+    document.getElementById('zakat-panel').style.display = tab === 'zakat' ? 'block' : 'none';
+    document.getElementById('ushr-panel').style.display = tab === 'ushr' ? 'block' : 'none';
+  }
+
+  function setIrrigationType(type) {
+    irrigationType = type;
+    document.getElementById('rain-btn').classList.toggle('active', type === 'rain');
+    document.getElementById('irr-btn').classList.toggle('active', type === 'irrigated');
+    calcUshr();
+  }
+
+  function fmt(n) { return Math.round(n).toLocaleString('en-PK'); }
+
+  function checkIcon(ok) {
+    return ok
+      ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>`
+      : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+  }
+
+  function calcZakat() {
+    const cash = +document.getElementById('z-cash').value || 0;
+    const bank = +document.getElementById('z-bank').value || 0;
+    const lent = +document.getElementById('z-lent').value || 0;
+    const goldG = +document.getElementById('z-gold-g').value || 0;
+    const goldPrice = +document.getElementById('z-gold-price').value || 22000;
+    const silverG = +document.getElementById('z-silver-g').value || 0;
+    const silverPrice = +document.getElementById('z-silver-price').value || 275;
+    const stocks = +document.getElementById('z-stocks').value || 0;
+    const biz = +document.getElementById('z-biz').value || 0;
+    const debt = +document.getElementById('z-debt').value || 0;
+
+    const goldVal = goldG * goldPrice;
+    const silverVal = silverG * silverPrice;
+    const total = cash + bank + lent + goldVal + silverVal + stocks + biz;
+    const net = Math.max(0, total - debt);
+
+    const nisabGold = 87.48 * goldPrice;
+    const nisabSilver = 612.36 * silverPrice;
+    const nisab = Math.min(nisabGold, nisabSilver);
+    const eligible = net >= nisab;
+    const zakatDue = eligible ? net * 0.025 : 0;
+
+    document.getElementById('zakat-result').innerHTML = `
+      <div class="result-card">
+        <span class="result-badge ${eligible ? 'eligible' : 'not-eligible'}">
+          ${checkIcon(eligible)} ${eligible ? 'Zakat is obligatory on you' : 'Below Nisab — Zakat not obligatory'}
+        </span>
+        <div class="result-grid">
+          <div class="metric"><div class="metric-label">Total wealth</div><div class="metric-value">PKR ${fmt(total)}</div></div>
+          <div class="metric"><div class="metric-label">Net zakatable wealth</div><div class="metric-value">PKR ${fmt(net)}</div></div>
+          <div class="metric"><div class="metric-label">Nisab threshold</div><div class="metric-value">PKR ${fmt(nisab)}</div></div>
+          <div class="metric"><div class="metric-label">Zakat due (2.5%)</div><div class="metric-value highlight">PKR ${fmt(zakatDue)}</div></div>
+        </div>
+        <p class="nisab-note">Nisab uses the lower of gold (87.48g = PKR ${fmt(nisabGold)}) and silver (612.36g = PKR ${fmt(nisabSilver)}) standards. Update gold/silver prices above for accuracy.</p>
+      </div>`;
+  }
+
+  function calcUshr() {
+    document.getElementById('u-value').value = 0;
+    const yieldKg = +document.getElementById('u-yield').value || 0;
+    const price = +document.getElementById('u-price').value || 50;
+    const totalVal = yieldKg * price;
+    const nisabKg = 653;
+    const rate = irrigationType === 'rain' ? 0.10 : 0.05;
+    const eligible = yieldKg >= nisabKg;
+    const ushrDue = eligible ? totalVal * rate : 0;
+    showUshrResult(yieldKg, totalVal, nisabKg * price, rate, eligible, ushrDue);
+  }
+
+  function calcUshrValue() {
+    document.getElementById('u-yield').value = 0;
+    const val = +document.getElementById('u-value').value || 0;
+    const pricePerKg = +document.getElementById('u-price').value || 50;
+    const nisabVal = 653 * pricePerKg;
+    const rate = irrigationType === 'rain' ? 0.10 : 0.05;
+    const eligible = val >= nisabVal;
+    const ushrDue = eligible ? val * rate : 0;
+    showUshrResult(null, val, nisabVal, rate, eligible, ushrDue);
+  }
+
+  function showUshrResult(kg, totalVal, nisabVal, rate, eligible, ushrDue) {
+    document.getElementById('ushr-result').innerHTML = `
+      <div class="result-card">
+        <span class="result-badge ${eligible ? 'eligible' : 'not-eligible'}">
+          ${checkIcon(eligible)} ${eligible ? 'Ushr is obligatory on you' : 'Below Nisab — Ushr not obligatory'}
+        </span>
+        <div class="result-grid">
+          ${kg !== null ? `<div class="metric"><div class="metric-label">Crop yield</div><div class="metric-value">${fmt(kg)} kg</div></div>` : ''}
+          <div class="metric"><div class="metric-label">Produce value</div><div class="metric-value">PKR ${fmt(totalVal)}</div></div>
+          <div class="metric"><div class="metric-label">Nisab threshold</div><div class="metric-value">PKR ${fmt(nisabVal)}</div></div>
+          <div class="metric"><div class="metric-label">Ushr due (${rate * 100}%)</div><div class="metric-value highlight">PKR ${fmt(ushrDue)}</div></div>
+        </div>
+        <p class="nisab-note">Nisab for Ushr is 653 kg (5 wasaq). Rate: ${rate === 0.10 ? '10% for rain/natural water irrigation' : '5% for artificial irrigation'}.</p>
+      </div>`;
+  }
+
+  calcZakat();
+</script>
+
+</body>
+</html>
